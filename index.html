@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>D'Shon Taylor Portfolio</title>
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a onclick="scrollToTop()" class="selected">Home</a></li>
+                <li><a onclick="projectsVisible()">Projects</a></li>
+                <li><a onclick="resumeVisible()">Resume</a></li>
+                <li><a onclick="scrollToSkills()">Skills</a></li>
+                <li><a onclick="scrollToContact()">Contact</a></li>
+            </ul>
+        </nav>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M320-240 80-480l240-240 57 57-184 184 183 183-56 56Zm320 0-57-57 184-184-183-183 56-56 240 240-240 240Z"/></svg>
+    </header>
+    <main>
+        <section id="hero">
+            <div>
+                <h1>D'Shon Taylor</h1>
+                <h2>Front-End Web Engineer</h2>
+                <p class="intro">Welcome to my personal portfolio! Here, you'll find examples of my work, including projects I've built, my skills, and my resume. If you have any questions or want to connect, feel free to reach out.</p>
+            </div>
+            <div class="headshot">
+                <img src="./Assets/images/headshot_forward.webp" alt="D'Shon Taylor's headshot">
+            </div>
+        </section>
+        <section id="projects-resume">
+            <div class="section-selector">
+                <h2 id="projects-title" class="active">Projects</h2>
+                <h2 id="resume-title">Resume</h2>
+                <div id="selection-bar"></div>
+            </div>
+            <div class="row-min" id="visible-section">
+                <section id="projects" class="visible">
+
+                    <div class="project-container">
+                        <img src="./Assets/images/Projects/Portfolio.webp">
+                        <div class="content">
+                            <h3>Personal Portfolio Website</h3>
+                            <p class="secondary">This portfolio is a project I built as part of a Codecademy assignment to put my front-end development skills into practice. It showcases my work, skills, and experience while reflecting my abilities in HTML, CSS, JS, and responsive design.</p>
+                            <ul>
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JavaScript</li>
+                                <li>Node.js</li>
+                                <li>Figma</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="project-container">
+                        <img src="./Assets/images/Projects/self-improvement-society-home.webp">
+                        <div class="content">
+                            <h3>The Self-Improvement Society Landing Page</h3>
+                            <p class="secondary">A Codecademy project where I built a fictional book club website using responsive design techniques like relative units and media queries for seamless adaptability across screen sizes.</p>
+                            <ul>
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>Figma</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="project-container">
+                        <img src="./Assets/images/Projects/forge-frame-home.webp">
+                        <div class="content">
+                            <h3>Forge & Frame Homepage</h3>
+                            <p class="secondary">A Codecademy project where I designed and built a homepage for Forge & Frame, a fictional artisan woodworking and metalworking shop. Using Flexbox, I created a responsive layout showcasing the company’s mission, products, and team.</p>
+                            <ul>
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>Figma</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </section>
+                <section id="resume">
+                    
+                    <div class="company">
+                        <div class="company-logo">
+                            <img src="./Assets/images/company-logos/AFCU-logo.svg">
+                        </div>
+                        <h3 class="company-name">A+ Federal Credit Union, Austin TX</h3>
+                    </div>
+                    <div class="work-details">
+                        <div class="job-title active">
+                            <h4>Intranet Web Designer</h4>
+                            <span class="time-period">November 2023 - Present</span>
+                        </div>
+                        <ul class="active">
+                            <li>Developed a custom CSS framework for the intranet, significantly streamlining the page creation process and ensuring a consistent visual identity throughout the portal</li>
+                            <li>Collaborated effectively with various departments to understand their needs and translate them into user-friendly interfaces</li>
+                            <li>Designed and coded web pages from scratch using HTML/CSS</li>
+                        </ul>
+                    </div>
+                    <div class="work-details">
+                        <div class="job-title active">
+                            <h4>Internal Communications Specialist</h4>
+                            <span class="time-period">February 2021 - November 2023</span>
+                        </div>
+                        <ul class="active">
+                            <li>Researched, produced, and edited content for employee communications</li>
+                            <li>Worked with various departments to create and assist with strategy through concept development, planning, implementation and coordination of internal initiatives</li>
+                            <li>General intranet upkeep, moderation, and updates</li>
+                            <li>Utilized design thinking and problem solving to translate ideas and insights into actionable outcomes</li>
+                            <li>Collaborated effectively with diverse teams, ensuring clear communication and alignment with departmental needs</li>
+                            <li>Demonstrated a commitment to continuous learning by mastering HTML/CSS and utilizing these skills to enhance the intranet</li>
+                            <li>Increased departmental efficiency by creating coded announcement templates, reducing announcement creation time from 4 hours to 20 minutes</li>
+                        </ul>
+                    </div>
+                    <div class="work-details">
+                        <div class="job-title active">
+                            <h4>Member Service Officer I</h4>
+                            <span class="time-period">January 2020 - February 2021</span>
+                        </div>
+                        <ul class="active">
+                            <li>Maintained confidentiality with sensitive member information and branch specific knowledge</li>
+                            <li>Displayed high levels of customer service while performing common teller transactions such as deposits, withdrawals, and transfers</li>
+                            <li>Attended periodic trainings to develop soft skills and financial literacy</li>
+                            <li>Followed very intensive policy and procedure to ensure adherence to all laws and regulations regarding credit unions and banking</li>
+                            <li>Developed my own trainings to present to my peers as well as my superiors regarding personal development</li>
+                        </ul>
+                    </div>
+
+                    <div class="company">
+                        <div class="company-logo">
+                            <img src="./Assets/images/company-logos/barton_associates_inc_logo.jpeg">
+                        </div>
+                        <h3 class="company-name">Barton Associates, Austin TX</h3>
+                    </div>
+                    <div class="work-details">
+                        <div class="job-title">
+                            <h4>Account Manager</h4>
+                            <span class="time-period">September 2019 – January 2020</span>
+                        </div>
+                        <ul>
+                            <li>Engaged in exemplary written and verbal communication with CEO's and high-level personnel at Medical facilities in order to bring on new clients</li>
+                            <li>Managed and facilitated the onboarding of temporary medical professionals into newly acquired accounts</li>
+                            <li>Developed, evaluated, correlated, and analyzed facts in order to build reports on locum tenens users to present to upper management</li>
+                            <li>Identified and resolved issues with clients both proactively and as they arose</li>
+                            <li>Continuously improved upon my selling technique and industry knowledge by attending daily meetings and training</li>
+                            <li>Displayed adaptability by planning, organizing, and prioritizing tasks though out the day to effectively and efficiently manage my clients without compromising my attention to detail, accuracy of work, or level of customer service.</li>
+                        </ul>
+                    </div>
+
+                    <div class="company">
+                        <div class="company-logo">
+                            <img src="./Assets/images/company-logos/UTSA Logo White Outline.webp">
+                        </div>
+                        <h3 class="company-name">UTSA Athletics, San Antonio TX</h3>
+                    </div>
+                    <div class="work-details">
+                        <div class="job-title">
+                            <h4>Media Assistant</h4>
+                            <span class="time-period">January 2017 – May 2018</span>
+                        </div>
+                        <ul>
+                            <li>Utilized Adobe Acrobat Pro, Photoshop, Illustrator, AfterEffects and Premiere as well as Microsoft Word, Excel, Access, and PowerPoint in order to create, film, edit, and distribute varying forms of promotional materials</li>
+                            <li>Provided excellent customer service to players and fans</li>
+                            <li>Designed and implemented storyboard prep</li>
+                            <li>Cultivated team-player mentality</li>
+                            <li>Developed greater knowledge of cameras and technical equipment.</li>
+                        </ul>
+                    </div>
+
+                    <h4 class="resume-section-title"><span>Other Experience</span></h4>
+
+                    <div class="company">
+                        <div class="company-logo">
+                            <img src="./Assets/images/company-logos/visions-path.svg">
+                        </div>
+                        <h3 class="company-name">Visions Path, Georgetown TX</h3>
+                    </div>
+                    <div class="work-details">
+                        <div class="job-title">
+                            <h4>Founder/CEO</h4>
+                            <span class="time-period">September 2023 – Present</span>
+                        </div>
+                        <ul>
+                            <li>Designed and developed the 3Things Journal, a personal development journal created to empower users</li>
+                            <li>Established a consistent brand identity across website and social media channels</li>
+                            <li>Researched and implemented best practices in SEO and web design, leveraging digital marketing strategies for growth.</li>
+                            <li>Utilized strong written, oral, and interpersonal skills to develop relationships with vendors</li>
+                        </ul>
+                    </div>
+
+                    <div class="company">
+                        <div class="company-logo">
+                            <img src="./Assets/images/company-logos/esv-creative.jpeg">
+                        </div>
+                        <h3 class="company-name">ESV Creative, Corpus Christi TX</h3>
+                    </div>
+                    <div class="work-details">
+                        <div class="job-title">
+                            <h4>Marketing and Social Media Consultant</h4>
+                            <span class="time-period">January 2018 - Present</span>
+                        </div>
+                        <ul>
+                            <li>Coordinated and implemented social media campaigns and events</li>
+                            <li>Utilized Adobe Acrobat Pro, Photoshop, Illustrator, AfterEffects and Premiere as well as Microsoft Word, Excel, Access, and PowerPoint in order to create marketing materials, reports, and marketing strategies for various political campaigns and private companies</li>
+                            <li>Maintained confidentiality with clients’ personal and political information.</li>
+                            <li>Read and analyzed legal and legislative documents pertaining to political figures and organizations in order to make strategic marketing decisions</li>
+                            <li>Reviewed and monitored legislation for newest regulations regarding what political candidates, organizations, and entities can do</li>
+                            <li>Draft weekly emails sent to thousands of recipients with latest updates to marketing and social media tools and techniques.</li>
+                        </ul>
+                    </div>
+
+                    <div class="company">
+                        <div class="company-logo">
+                            <img src="./Assets/images/company-logos/UTSA Logo White Outline.webp">
+                        </div>
+                        <h3 class="company-name">UTSA Marketing and Communications, San Antonio TX</h3>
+                    </div>
+                    <div class="work-details">
+                        <div class="job-title">
+                            <h4>Intern</h4>
+                            <span class="time-period">August 2018 - December 2018</span>
+                        </div>
+                        <ul>
+                            <li>Utilized Adobe Acrobat Pro, Photoshop, Illustrator, AfterEffects and Premiere as well as Microsoft Word, Excel, Access, and PowerPoint in order to create marketing materials and reports.</li>
+                            <li>Analyzed web analytics in order to optimize creative efforts</li>
+                            <li>Managed brand identity though completion of projects</li>
+                            <li>Developed live presentations on marketing materials and required learning objectives</li>
+                            <li>Performed administrative duties as needed</li>
+                        </ul>
+                    </div>
+
+                    <div class="company">
+                        <div class="company-logo">
+                            <img src="./Assets/images/company-logos/UTSA Logo White Outline.webp">
+                        </div>
+                        <h3 class="company-name">University of Texas at San Antonio, San Antonio TX</h3>
+                    </div>
+                    <div class="work-details">
+                        <div class="job-title">
+                            <h4>Supplemental Instructor</h4>
+                            <span class="time-period">August 2016 – December 2016</span>
+                        </div>
+                        <ul>
+                            <li>Developed educational materials to present to students over required learning objectives</li>
+                            <li>Utilized Adobe Acrobat Pro to edit existing documents and tailor them to my students</li>
+                            <li>Administered and analyzed student surveys to pinpoint areas where future development was required</li>
+                            <li>Maintained student-instructor confidentiality</li>
+                            <li>Responsible for management, development, and growth of students while under my supervision</li>
+                        </ul>
+                    </div>
+
+                    <h4 class="resume-section-title">Education</h4>
+
+                    <div class="work-details">
+                        <div class="job-title static">
+                            <h4>University of Texas at San Antonio, San Antonio TX</h4>
+                            <span class="time-period">August 2015 – May 2019</span>
+                        </div>
+                        <p><strong>Major:</strong> Digital Communication | <strong>Minor:</strong> Business Administration | Summa Cum Laude Honors</p>
+                    </div>
+                </section>
+            </div>
+        </section>
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="icons-container">
+                <ul>
+                    <li title="HTML5"><img class="icon" src="./Assets/images/icons/HTML5_logo.webp" alt="HTML5 Logo"></li>
+                    <li title="CSS3"><img class="icon" src="./Assets/images/icons/CSS3_logo.webp" alt="CSS3 Logo"></li>
+                    <li title="JavaScript"><img class="icon" src="./Assets/images/icons/JavaScript_logo.webp" alt="JavaScript Logo"></li>
+                    <li title="Node.js"><img class="icon" src="./Assets/images/icons/Node.js_logo.svg" alt="Node.js Logo"></li>
+                    <li title="Git"><img class="icon" src="./Assets/images/icons/Git_icon.png" alt="Git logo"></li>
+                    <li title="Figma"><img class="icon" src="./Assets/images/icons/Figma-logo.png" alt="Figma Logo"></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div id="contact">
+            <h2>Let's Build Something <span class="clr-accent">Awesome</span> Together.</h2>
+            <p>I'm always open to new opportunities and collaborations. Whether you have a project in mind or just want to say hello, feel free to reach out!</p>
+            <p>Email me at <a href="#">dshontaylor@gmail.com</a></p>
+            <p>Looking forward to connecting!</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a onclick="scrollToTop()">Home</a></li>
+                <li><a onclick="projectsVisible()">Projects</a></li>
+                <li><a onclick="resumeVisible()">Resume</a></li>
+                <li><a onclick="scrollToSkills()">Skills</a></li>
+                <li><a onclick="scrollToContact()">Contact</a></li>
+            </ul>
+        </nav>
+    </footer>
+    <button id="back-to-top" onclick="scrollToTop()"><div><img src="./Assets/images/icons/arrow-up.svg"></div></button>
+</body>
+</html>
