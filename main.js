@@ -19,12 +19,14 @@ projectLinks.forEach(link => {
     link.addEventListener("click", openProject);
 });
 
+// Attach click event handler to close the project window
 iframeContainer.addEventListener("click", (event) => {
     if (event.target === iframeContainer) {
         closeProject();
     }
 });
 
+// Open/close the project window
 function openProject() {
     iframeContainer.style.display = "grid";
 }
