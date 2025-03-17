@@ -10,6 +10,28 @@ const selectSection = document.getElementById("projects-resume");
 const backToTopButton = document.getElementById("back-to-top");
 const skillsSection = document.getElementById("skills");
 const contactSection = document.getElementById("contact");
+const projectLinks = document.querySelectorAll(".project-link");
+const iframeContainer = document.getElementById("iframe-container");
+const iframe = document.getElementById("project-window");
+
+// Attach click event handlers to the project links
+projectLinks.forEach(link => {
+    link.addEventListener("click", openProject);
+});
+
+iframeContainer.addEventListener("click", (event) => {
+    if (event.target === iframeContainer) {
+        closeProject();
+    }
+});
+
+function openProject() {
+    iframeContainer.style.display = "grid";
+}
+
+function closeProject() {
+    iframeContainer.style.display = "none";
+}
 
 // Show/hide the back to top button based on scroll position
 window.onscroll = function() {
