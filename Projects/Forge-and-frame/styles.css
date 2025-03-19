@@ -176,7 +176,7 @@
     display: grid;
     align-content: center;
     justify-content: center;
-    background-image: url("/hero.webp");
+    background-image: url("./images/hero.webp");
     background-size: cover;
     background-position: 50% 25%;
     color: white;
