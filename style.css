@@ -118,6 +118,8 @@ ul li::marker {
 main > section {
     margin-bottom: 4rem;
     padding-bottom: 4rem;
+    /* Keep a gap from the top when scrolled into view */
+    scroll-margin-top: 50px;
 }
 
 /* Header Styles */
@@ -533,6 +535,10 @@ body.no-scroll {
 
 /* Skills Styles */
 
+#skills {
+    padding-bottom: calc(4rem - 10px);
+}
+
 #skills h2 {
     text-align: center;
     margin-bottom: 2rem;
@@ -554,8 +560,19 @@ body.no-scroll {
 
 #skills ul li {
     cursor: help;
+    display: grid;
+    text-align: center;
+    gap: 8px;
 }
 
+#skills ul li span {
+    opacity: 0;
+    transition: .5s ease-in-out;
+}
+
+#skills ul li:hover span {
+    opacity: 1;
+}
 /* Footer Styles */
 
 footer {
