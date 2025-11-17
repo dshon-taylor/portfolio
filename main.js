@@ -82,6 +82,14 @@ function openProject(event) {
     event.preventDefault();
     const link = event.currentTarget;
     const url = link.href;
+    // If the clicked link carries a 'dark' class, mirror that on the close button
+    if (iframeCloseBtn) {
+        if (link.classList.contains('dark')) {
+            iframeCloseBtn.classList.add('dark');
+        } else {
+            iframeCloseBtn.classList.remove('dark');
+        }
+    }
     // load url into iframe and show overlay
     if (iframe) iframe.src = url;
     iframeContainer.style.display = "flex";
@@ -112,6 +120,8 @@ function closeProject() {
     if (pageFooter) pageFooter.removeAttribute('aria-hidden');
     // stop the iframe content
     if (iframe) iframe.src = '';
+    // reset close button theme classes
+    if (iframeCloseBtn) iframeCloseBtn.classList.remove('dark');
     // remove keydown handler
     document.removeEventListener('keydown', handleOverlayKeydown);
 }
