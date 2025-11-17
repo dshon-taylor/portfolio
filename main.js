@@ -10,7 +10,8 @@ const selectSection = document.getElementById("projects-resume");
 const backToTopButton = document.getElementById("back-to-top");
 const skillsSection = document.getElementById("skills");
 const contactSection = document.getElementById("contact");
-const projectLinks = document.querySelectorAll(".project-link");
+// Only select anchor elements with the project-link class (there are also divs with that class)
+const projectLinks = document.querySelectorAll("a.project-link");
 const iframeContainer = document.getElementById("iframe-container");
 const iframe = document.getElementById("project-window");
 
@@ -26,13 +27,93 @@ iframeContainer.addEventListener("click", (event) => {
     }
 });
 
+// Close button inside the iframe overlay
+const iframeCloseBtn = document.getElementById('iframe-close');
+if (iframeCloseBtn) {
+    iframeCloseBtn.addEventListener('click', closeProject);
+}
+
+// Elements to mark aria-hidden when modal is open
+const pageHeader = document.querySelector('header');
+const pageMain = document.querySelector('main');
+const pageFooter = document.querySelector('footer');
+
+// Focusable elements inside the overlay for focus trapping
+function getOverlayFocusable() {
+    const focusables = [];
+    if (iframeCloseBtn) focusables.push(iframeCloseBtn);
+    if (iframe) focusables.push(iframe);
+    return focusables;
+}
+
+// Keydown handler for Escape and Tab focus trapping
+function handleOverlayKeydown(e) {
+    if (!iframeContainer || iframeContainer.style.display === 'none') return;
+    if (e.key === 'Escape') {
+        e.preventDefault();
+        closeProject();
+        return;
+    }
+
+    if (e.key === 'Tab') {
+        const focusables = getOverlayFocusable();
+        if (focusables.length === 0) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        const active = document.activeElement;
+
+        if (e.shiftKey) {
+            if (active === first) {
+                e.preventDefault();
+                last.focus();
+            }
+        } else {
+            if (active === last) {
+                e.preventDefault();
+                first.focus();
+            }
+        }
+    }
+}
+
 // Open/close the project window
-function openProject() {
-    iframeContainer.style.display = "grid";
+function openProject(event) {
+    // prevent the default anchor navigation
+    event.preventDefault();
+    const link = event.currentTarget;
+    const url = link.href;
+    // load url into iframe and show overlay
+    if (iframe) iframe.src = url;
+    iframeContainer.style.display = "flex";
+    // lock background scrolling
+    document.body.classList.add('no-scroll');
+    // hide background from assistive tech
+    if (pageHeader) pageHeader.setAttribute('aria-hidden', 'true');
+    if (pageMain) pageMain.setAttribute('aria-hidden', 'true');
+    if (pageFooter) pageFooter.setAttribute('aria-hidden', 'true');
+    // focus iframe for keyboard scroll
+    // focus close button first (more discoverable), then iframe
+    if (iframeCloseBtn) {
+        iframeCloseBtn.focus();
+    } else if (iframe) {
+        iframe.focus();
+    }
+    // attach keydown handler to trap focus and close on Escape
+    document.addEventListener('keydown', handleOverlayKeydown);
 }
 
 function closeProject() {
     iframeContainer.style.display = "none";
+    // unlock background scrolling
+    document.body.classList.remove('no-scroll');
+    // restore background to assistive tech
+    if (pageHeader) pageHeader.removeAttribute('aria-hidden');
+    if (pageMain) pageMain.removeAttribute('aria-hidden');
+    if (pageFooter) pageFooter.removeAttribute('aria-hidden');
+    // stop the iframe content
+    if (iframe) iframe.src = '';
+    // remove keydown handler
+    document.removeEventListener('keydown', handleOverlayKeydown);
 }
 
 // Show/hide the back to top button based on scroll position

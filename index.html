@@ -24,9 +24,12 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M320-240 80-480l240-240 57 57-184 184 183 183-56 56Zm320 0-57-57 184-184-183-183 56-56 240 240-240 240Z"/></svg>
     </header>
     <main>
-        <div id="iframe-container">
-        <iframe name="project-window" id="project-window"></iframe>
-        </div>
+                <div id="iframe-container">
+                                <div id="iframe-inner" role="dialog" aria-modal="true" aria-label="Project viewer">
+                                    <button id="iframe-close" aria-label="Close project">✕</button>
+                                    <iframe name="project-window" id="project-window" tabindex="0" title="Project content"></iframe>
+                                </div>
+                </div>
         <section id="hero">
             <div>
                 <h1>D'Shon Taylor</h1>
@@ -47,48 +50,83 @@
                 <section id="projects" class="visible">
                     
                     <div class="project-container project-link">
-                        <img src="./Assets/images/Projects/Portfolio.webp">
+                        <a class="project-link" href="https://jammming-dshon.netlify.app" target="project-window"></a>
+                        <img src="./Assets/images/Projects/Jammming Screenshot.png">
                         <div class="content">
-                            <h3>Personal Portfolio Website</h3>
-                            <p class="secondary">This portfolio is a project I built as part of a Codecademy assignment to put my front-end development skills into practice. It showcases my work, skills, and experience while reflecting my abilities in HTML, CSS, JS, and responsive design.</p>
+                            <h3>Jammming React App</h3>
+                            <p class="secondary">
+                                A React-based web application that integrates with the Spotify API. Users can search for songs, build custom playlists, and save them directly to their Spotify account using OAuth authentication and dynamic state management.
+                            </p>
                             <ul>
-                                <li>HTML</li>
-                                <li>CSS</li>
+                                <li>React</li>
                                 <li>JavaScript</li>
-                                <li>Node.js</li>
-                                <li>Figma</li>
+                                <li>REST APIs</li>
+                                <li>OAuth</li>
+                                <li>CSS</li>
+                                <li>Git</li>
+                                <li>Spotify API Integration</li>
                             </ul>
                         </div>
                     </div>
-
+                    
                     <div class="project-container project-link">
                         <a class="project-link" href="./Projects/Responsive-Club-Website/index.html" target="project-window"></a>
                         <img src="./Assets/images/Projects/self-improvement-society-home.webp">
                         <div class="content">
-                            <h3>The Self-Improvement Society Landing Page</h3>
-                            <p class="secondary">A Codecademy project where I built a fictional book club website using responsive design techniques like relative units and media queries for seamless adaptability across screen sizes.</p>
+                            <h3>The Self-Improvement Society</h3>
+                            <p class="secondary">
+                                A responsive landing page designed for a fictional book club. I focused on clean structure, scalable typography, and flexible layout techniques that adapt smoothly across devices using relative units and media queries.
+                            </p>
                             <ul>
                                 <li>HTML</li>
                                 <li>CSS</li>
+                                <li>Responsive Design</li>
+                                <li>Git</li>
                                 <li>Figma</li>
                             </ul>
                         </div>
                     </div>
-
+                    
+                    
                     <div class="project-container project-link">
                         <a class="project-link" href="./Projects/Forge-and-frame/index.html" target="project-window"></a>
                         <img src="./Assets/images/Projects/forge-frame-home.webp">
                         <div class="content">
                             <h3>Forge & Frame Homepage</h3>
-                            <p class="secondary">A Codecademy project where I designed and built a homepage for Forge & Frame, a fictional artisan woodworking and metalworking shop. Using Flexbox, I created a responsive layout showcasing the company’s mission, products, and team.</p>
+                            <p class="secondary">
+                                A homepage built for a fictional artisan workshop. Using Flexbox and structured layout patterns, I created a responsive design that highlights the brand’s story, featured products, and team members while practicing clean UI fundamentals.
+                            </p>
                             <ul>
                                 <li>HTML</li>
                                 <li>CSS</li>
+                                <li>Flexbox</li>
+                                <li>Responsive Design</li>
+                                <li>Git</li>
                                 <li>Figma</li>
                             </ul>
                         </div>
                     </div>
-
+                    
+                    
+                    <div class="project-container project-link">
+                        <img src="./Assets/images/Projects/Portfolio.webp">
+                        <div class="content">
+                            <h3>Personal Portfolio Website</h3>
+                            <p class="secondary">
+                                A custom portfolio built to demonstrate my front-end development abilities. It highlights my work, skills, and background while showcasing my use of semantic HTML, modern CSS, JavaScript, and responsive design principles.
+                            </p>
+                            <ul>
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JavaScript</li>
+                                <li>Responsive Design</li>
+                                <li>Git</li>
+                                <li>Figma</li>
+                                <li>Node.js</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
                 </section>
                 <section id="resume">
                     

@@ -279,33 +279,55 @@ p.intro {
     z-index: 15;
 }
 
+/* Prevent background scrolling when overlay/modal is open */
+body.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
 #iframe-container {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    inset: 0; /* top:0; right:0; bottom:0; left:0 */
     background-color: rgba(0,0,0,0.7);
-    display: none;
+    display: none; /* toggled by JS */
     justify-content: center;
     align-items: center;
     z-index: 100;
+    overflow: auto; /* allow the overlay to scroll on small viewports */
+    -webkit-overflow-scrolling: touch;
+}
+
+#iframe-inner {
+    position: relative;
+    width: 70vw;
+    max-width: 1200px;
+    height: 80vh; /* use viewport height so body doesn't scroll */
+    max-height: 90vh;
+    background-color: rgba(255,255,255,1);
+    border-radius: 1rem;
+    border: 1px solid #fff;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.5);
+    overflow: hidden;
 }
 
 #project-window {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 70vw;
-    height: 80%;
-    border-radius: 1rem;
-    background-color: rgba(255,255,255,1);
-    border: 1px solid black;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100%;
+    border: none;
     display: block;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
+}
+
+#iframe-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    z-index: 110;
 }
 
 .project-container::before {
@@ -323,7 +345,7 @@ p.intro {
         transform 0.3s ease 0.1s, /* Smooth transition for transform */
         opacity 200ms ease 0s; 
     border-radius: var(--border-radius); /* Ensure the same border-radius */
-    background-image: linear-gradient(to top, rgba(0,0,0,0.9) 50%, rgba(0,0,0,0));
+    background-image: linear-gradient(to top, rgba(0,0,0,.9) 50%, rgba(0,0,0,0.5) 85%, rgba(0,0,0,0));
 }
 
 .project-container img {
