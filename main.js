@@ -14,6 +14,7 @@ const contactSection = document.getElementById("contact");
 const projectLinks = document.querySelectorAll("a.project-link");
 const iframeContainer = document.getElementById("iframe-container");
 const iframe = document.getElementById("project-window");
+const openExternalBtn = document.getElementById('open-external');
 
 // Attach click event handlers to the project links
 projectLinks.forEach(link => {
@@ -33,6 +34,19 @@ if (iframeCloseBtn) {
     iframeCloseBtn.addEventListener('click', closeProject);
 }
 
+// External open button (open project in new tab)
+if (openExternalBtn) {
+    openExternalBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const url = openExternalBtn.dataset.url;
+        if (url) {
+            window.open(url, '_blank', 'noopener');
+        }
+    });
+    // hide by default until a project is opened
+    openExternalBtn.style.display = 'none';
+}
+
 // Elements to mark aria-hidden when modal is open
 const pageHeader = document.querySelector('header');
 const pageMain = document.querySelector('main');
@@ -42,6 +56,7 @@ const pageFooter = document.querySelector('footer');
 function getOverlayFocusable() {
     const focusables = [];
     if (iframeCloseBtn) focusables.push(iframeCloseBtn);
+    if (openExternalBtn) focusables.push(openExternalBtn);
     if (iframe) focusables.push(iframe);
     return focusables;
 }
@@ -90,6 +105,12 @@ function openProject(event) {
             iframeCloseBtn.classList.remove('dark');
         }
     }
+    // configure external-open button
+    if (openExternalBtn) {
+        openExternalBtn.dataset.url = url;
+        openExternalBtn.style.display = 'inline-flex';
+        if (link.classList.contains('dark')) openExternalBtn.classList.add('dark'); else openExternalBtn.classList.remove('dark');
+    }
     // load url into iframe and show overlay
     if (iframe) iframe.src = url;
     iframeContainer.style.display = "flex";
@@ -122,6 +143,12 @@ function closeProject() {
     if (iframe) iframe.src = '';
     // reset close button theme classes
     if (iframeCloseBtn) iframeCloseBtn.classList.remove('dark');
+    // hide/clear open-external button
+    if (openExternalBtn) {
+        openExternalBtn.style.display = 'none';
+        delete openExternalBtn.dataset.url;
+        openExternalBtn.classList.remove('dark');
+    }
     // remove keydown handler
     document.removeEventListener('keydown', handleOverlayKeydown);
 }
