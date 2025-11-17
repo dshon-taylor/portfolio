@@ -438,6 +438,10 @@ body.no-scroll {
     margin-top: 4rem;
 }
 
+.company .company-logo {
+    display: none;
+}
+
 #resume .company-logo img {
     height: 2.5rem;
     display: block;
@@ -451,12 +455,17 @@ body.no-scroll {
     margin-top: 1rem;
 }
 
-#resume .job-title h4 {
+#resume h3 {
     color: var(--clr-accent);
 }
 
+#resume .job-title h4 {
+    color: var(--clr-accent);
+    color: white;
+}
+
 .job-title:not(.static) {
-    --indent: 1.5rem;
+    --indent: 2rem;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -469,15 +478,22 @@ body.no-scroll {
 .job-title:not(.static)::before {
     position: absolute;
     left: calc(0px - var(--indent));
-    content: "▼"; /* Add down arrow */
+    content: "";
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    border-right: 2px solid var(--clr-accent);
+    border-bottom: 2px solid var(--clr-accent);
     color: var(--clr-accent);
     font-size: 1rem;
-    margin-left: 0rem;
+    margin-inline: 10px;
+    margin-top: -5px;
     transition: transform 0.3s ease; /* Smooth transition for rotation */
 }
 
 .job-title.active::before {
-    transform: rotate(180deg); /* Rotate arrow when active */
+    margin-top: 5px;
+    transform: rotate(225deg); /* Rotate arrow when active */
 }
 
 .work-details ul {
