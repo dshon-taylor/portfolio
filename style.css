@@ -705,6 +705,7 @@ body.no-scroll {
     justify-content: center;
     align-items: center;
     gap: 5%;
+    padding-left: 0 !important;
 }
 
 #skills ul li {
