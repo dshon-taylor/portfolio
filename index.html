@@ -26,11 +26,17 @@
     <main>
                 <div id="iframe-container">
                                 <div id="iframe-inner" role="dialog" aria-modal="true" aria-label="Project viewer">
+                                    <!-- Project thumbnail shown behind the dialog to indicate the selected project -->
+                                    <img id="iframe-thumb" alt="Selected project preview" />
                                     <button id="iframe-close" aria-label="Close project">✕</button>
                                     <button id="open-external" aria-label="Open Project in External Window">
                                         <span class="ext-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"/></svg></span>
                                         <span class="ext-text">Open in a New Tab</span>
                                     </button>
+                                    <!-- Message shown when iframe is not used (user must open in new window) -->
+                                    <div id="iframe-message" class="iframe-message" role="status" aria-live="polite" style="display:none;">
+                                        <p id="iframe-message-text">This project requires opening in a new window. <a id="iframe-message-link" href="#" target="_blank" rel="noopener">Open in a new window</a></p>
+                                    </div>
                                     <iframe name="project-window" id="project-window" tabindex="0" title="Project content"></iframe>
                                 </div>
                 </div>
@@ -54,7 +60,9 @@
                 <section id="projects" class="visible">
                     
                     <div class="project-container project-link">
-                        <a class="project-link dark" href="https://jammming-dshon.netlify.app" target="project-window"></a>
+                        <!-- Mark this project as requiring external open (OAuth / cross-origin). Add the
+                             class "requires-external" to other anchors to opt them into the same behavior. -->
+                        <a class="project-link dark requires-external" href="https://jammming-dshon.netlify.app" target="project-window" data-requires-external="true"></a>
                         <img src="./Assets/images/Projects/Jammming Screenshot.png">
                         <div class="content">
                             <h3>Jammming React App</h3>
@@ -341,14 +349,14 @@
             <h2>Skills</h2>
             <div class="icons-container">
                 <ul>
-                    <li title="HTML5"><img class="icon" src="./Assets/images/icons/HTML5_logo.webp" alt="HTML5 Logo"><span>HTML</span></li>
-                    <li title="CSS3"><img class="icon" src="./Assets/images/icons/CSS3_logo.webp" alt="CSS3 Logo"><span>CSS</span></li>
-                    <li title="JavaScript"><img class="icon" src="./Assets/images/icons/JavaScript_logo.webp" alt="JavaScript Logo"><span>JavaScript</span></li>
-                    <li title="React"><img class="icon" src="./Assets/images/icons/React-icon.svg.png" alt="React Logo"><span>React</span></li>
-                    <li title="Node.js"><img class="icon" src="./Assets/images/icons/Node.js_logo.svg" alt="Node.js Logo"><span>Node.js</span></li>
-                    <li title="Git"><img class="icon" src="./Assets/images/icons/Git_icon.png" alt="Git logo"><span>Git/GitHub</span></li>
-                    <li title="Figma"><img class="icon" src="./Assets/images/icons/Figma-logo.png" alt="Figma Logo"><span>Figma</span></li>
-                    <li title="Netlify"><img class="icon" src="./Assets/images/icons/netlify-icon.png" alt="Netlify Logo"><span>Netlify</span></li>
+                    <li><img class="icon" src="./Assets/images/icons/HTML5_logo.webp" alt="HTML5 Logo" aria-hidden="true"><span>HTML</span></li>
+                    <li><img class="icon" src="./Assets/images/icons/CSS3_logo.webp" alt="CSS3 Logo" aria-hidden="true"><span>CSS</span></li>
+                    <li><img class="icon" src="./Assets/images/icons/JavaScript_logo.webp" alt="JavaScript Logo" aria-hidden="true"><span>JavaScript</span></li>
+                    <li><img class="icon" src="./Assets/images/icons/React-icon.svg.png" alt="React Logo" aria-hidden="true"><span>React</span></li>
+                    <li><img class="icon" src="./Assets/images/icons/Node.js_logo.svg" alt="Node.js Logo" aria-hidden="true"><span>Node.js</span></li>
+                    <li><img class="icon" src="./Assets/images/icons/Git_icon.png" alt="Git logo" aria-hidden="true"><span>Git/GitHub</span></li>
+                    <li><img class="icon" src="./Assets/images/icons/Figma-logo.png" alt="Figma Logo" aria-hidden="true"><span>Figma</span></li>
+                    <li><img class="icon" src="./Assets/images/icons/netlify-icon.png" alt="Netlify Logo" aria-hidden="true"><span>Netlify</span></li>
                 </ul>
             </div>
         </section>
