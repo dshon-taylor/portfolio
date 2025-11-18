@@ -871,6 +871,14 @@ footer {
         align-items: start;
     }
 
+    .job-title:not(.static)::before {
+        margin-top: 6px;
+    }
+
+    .job-title.active::before {
+        margin-top: 12px;
+    }
+
     .company-logo {
         display: none;
     }
