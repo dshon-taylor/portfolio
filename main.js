@@ -34,7 +34,7 @@ projectLinks.forEach(link => {
         // Mobile: first tap shows details, second tap opens project
         link.addEventListener("click", handleMobileProjectClick);
         // Also attach touchend for better mobile support
-        link.addEventListener("touchend", handleMobileProjectClick, { passive: false });
+        link.addEventListener("click", handleMobileProjectClick, { passive: false });
     } else {
         // Desktop: single click opens project
         link.addEventListener("click", openProject);
