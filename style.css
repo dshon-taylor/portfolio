@@ -502,7 +502,7 @@ body.no-scroll {
         transform 0.3s ease 0.1s, /* Smooth transition for transform */
         opacity 200ms ease 0s; 
     border-radius: var(--border-radius); /* Ensure the same border-radius */
-    background-image: linear-gradient(to top, rgba(0,0,0,.9) 50%, rgba(0,0,0,0.5) 85%, rgba(0,0,0,0));
+    background-image: linear-gradient(to top, rgba(0,0,0,.95) 50%, rgba(0,0,0,0.6) 90%, rgba(0,0,0,0));
 }
 
 .project-container img {
@@ -900,7 +900,7 @@ footer {
     .section-selector {
         --gap: 5px;
     }
-    
+
     .section-selector h2 {
         font-size: 7vw;
         padding: .25rem 1rem;
