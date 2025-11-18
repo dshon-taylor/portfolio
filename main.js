@@ -19,9 +19,26 @@ const iframeMessage = document.getElementById('iframe-message');
 const iframeMessageLink = document.getElementById('iframe-message-link');
 const iframeThumb = document.getElementById('iframe-thumb');
 
+// Detect if the user is on a mobile device
+function isMobileDevice() {
+    return (('ontouchstart' in window) || (navigator.maxTouchPoints > 0)) && 
+           (window.innerWidth <= 1024);
+}
+
+// Track which project container is currently showing details on mobile
+let mobileActiveContainer = null;
+
 // Attach click event handlers to the project links
 projectLinks.forEach(link => {
-    link.addEventListener("click", openProject);
+    if (isMobileDevice()) {
+        // Mobile: first tap shows details, second tap opens project
+        link.addEventListener("click", handleMobileProjectClick);
+        // Also attach touchend for better mobile support
+        link.addEventListener("touchend", handleMobileProjectClick, { passive: false });
+    } else {
+        // Desktop: single click opens project
+        link.addEventListener("click", openProject);
+    }
 });
 
 // Attach click event handler to close the project window
@@ -126,6 +143,40 @@ window.addEventListener('message', (e) => {
     // future message types can be handled here (e.g. theme, close-overlay)
 });
 
+// Handle mobile project clicks (two-tap behavior)
+function handleMobileProjectClick(event) {
+    event.preventDefault();
+    const link = event.currentTarget;
+    const container = link.closest('.project-container');
+    
+    // If this container is not currently showing details
+    if (!container.classList.contains('mobile-active')) {
+        // Remove mobile-active from any other container
+        if (mobileActiveContainer && mobileActiveContainer !== container) {
+            mobileActiveContainer.classList.remove('mobile-active');
+        }
+        // Show details for this container
+        container.classList.add('mobile-active');
+        mobileActiveContainer = container;
+    } else {
+        // Container already showing details, so open the project
+        container.classList.remove('mobile-active');
+        mobileActiveContainer = null;
+        openProject(event);
+    }
+}
+
+// Close mobile details when clicking outside on mobile
+if (isMobileDevice()) {
+    document.addEventListener('click', function(event) {
+        // Check if click is outside any project container
+        if (mobileActiveContainer && !event.target.closest('.project-container')) {
+            mobileActiveContainer.classList.remove('mobile-active');
+            mobileActiveContainer = null;
+        }
+    });
+}
+
 // Open/close the project window
 function openProject(event) {
     // prevent the default anchor navigation
@@ -225,6 +276,11 @@ function openProject(event) {
 
 function closeProject() {
     iframeContainer.style.display = "none";
+    // Clear mobile active state when closing project
+    if (mobileActiveContainer) {
+        mobileActiveContainer.classList.remove('mobile-active');
+        mobileActiveContainer = null;
+    }
     // unlock background scrolling
     document.body.classList.remove('no-scroll');
     // restore background to assistive tech
